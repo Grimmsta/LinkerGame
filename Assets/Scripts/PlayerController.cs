@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Camera m_Cam;
     private List<Tile> m_CurrentLinkingTiles = new List<Tile>();
     private Tile m_CurrentTile;
     private Grid m_Grid;
     private GameManager m_Manager;
+    private UIManager m_UIManager;
+    private bool m_ExitGamePromptActive = false;
 
     void Start()
     {
@@ -79,7 +81,7 @@ public class MouseController : MonoBehaviour
             m_CurrentLinkingTiles.Clear();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1)) //Right-click to reset the current link
         {
             foreach (Tile t in m_CurrentLinkingTiles)
             {
@@ -87,6 +89,18 @@ public class MouseController : MonoBehaviour
             }
 
             m_CurrentLinkingTiles.Clear();
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            if (!m_ExitGamePromptActive)
+            {
+                m_UIManager.ManagerOfUI.ShowExitGamePromt();
+            }
+            else
+            {
+                m_UIManager.ManagerOfUI.ShowExitGamePromt();
+            }
         }
     }
 }

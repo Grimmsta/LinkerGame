@@ -29,7 +29,7 @@ public class Tile : MonoBehaviour
 
     public void HighlightTile()
     {
-       transform.localScale = transform.localScale* 1.15f;
+        transform.localScale = transform.localScale * 1.15f;
     }
 
     public void RestoreTile()
@@ -39,8 +39,6 @@ public class Tile : MonoBehaviour
 
     public void DeactivateTile()
     {
-        //Play particle effect
-        //Display score
         gameObject.SetActive(false);
     }
 

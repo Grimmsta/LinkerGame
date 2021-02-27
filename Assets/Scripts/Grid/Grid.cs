@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+
 public class Grid : MonoBehaviour
 {
     [SerializeField]
@@ -17,9 +18,11 @@ public class Grid : MonoBehaviour
     private Vector3 m_ScreenSize;
 
     private Tile[,] m_AllTiles; //The tiles we have spawned in
+
     private Vector3[,] m_GridPositions; //All the positions the tiles can have
 
     private const float k_SmallNumber = 0.001f;
+
     private float m_MaxDistance;
     public float MaxDistance => m_MaxDistance;
 
@@ -35,12 +38,16 @@ public class Grid : MonoBehaviour
         m_ScreenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane));
 
         m_MaxDistance = ((Mathf.Sqrt(2f) + k_SmallNumber) * m_Padding);
+        DrawGrid();
+    }
 
+    private void DrawGrid()
+    {
         m_AllTiles = new Tile[(int)m_GridSize.x, (int)m_GridSize.y];
 
         m_GridPositions = new Vector3[(int)m_GridSize.x, (int)m_GridSize.y];
 
-        m_BottomOfTheGrid = (m_ScreenSize.y - m_GridSize.y / 2 + 0.5f) * m_Padding; //0.5 being half of the tiles size, a bot hard coded
+        m_BottomOfTheGrid = (m_ScreenSize.y - m_GridSize.y / 2 + 0.5f) * m_Padding; //0.5 being half of the tiles size, a bit hard coded
 
         for (int x = 0; x < m_GridSize.x; x++)
         {
@@ -145,5 +152,22 @@ public class Grid : MonoBehaviour
 
             disabledTiles[i].ActivateTile();
         }
+    }
+    public void SetSizeOfGrid(int size)
+    {
+        if (size == 1)
+        {
+            m_GridSize = new Vector2(25,25);
+        }
+        else if (size == 2)
+        {
+            m_GridSize = new Vector2(29,29);
+        }
+        else if (size == 3)
+        {
+            m_GridSize = new Vector2(33,33);
+        }
+
+        DrawGrid();
     }
 }

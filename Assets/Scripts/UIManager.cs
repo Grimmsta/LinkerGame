@@ -5,22 +5,28 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private Text m_GoalText;
-    
+
     [SerializeField]
     private Text m_ScoreText;
-    
+
     [SerializeField]
     private Text m_MovesText;
 
     [SerializeField]
     private GameObject m_GameOverScreen;
-    
+
     [SerializeField]
     private GameObject m_LevelCompleteScreen;
+  
+    [SerializeField]
+    private GameObject m_ExitGameScreen;
 
     private int m_GoalScore = 0;
+
     private int m_CurrentScore = 0;
+    
     private int m_MovesLeft = 0;
+    
     private GameManager m_GameManager;
 
     private static UIManager s_UIManager;
@@ -28,7 +34,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        s_UIManager = this;        
+        s_UIManager = this;
     }
 
     void Start()
@@ -43,6 +49,7 @@ public class UIManager : MonoBehaviour
 
         m_GameOverScreen.SetActive(false);
         m_LevelCompleteScreen.SetActive(false);
+        m_ExitGameScreen.SetActive(false);
     }
 
     public void UpdateScore(int score)
@@ -60,9 +67,19 @@ public class UIManager : MonoBehaviour
     {
         m_GameOverScreen.SetActive(true);
     }
-    
+
     public void ShowLevelCompletePrompt()
     {
         m_LevelCompleteScreen.SetActive(true);
+    }
+
+    public void ShowExitGamePromt()
+    {
+        m_ExitGameScreen.SetActive(true);
+    }
+
+    public void HideExitGamePrompt()
+    {
+        m_ExitGameScreen.SetActive(false);
     }
 }
