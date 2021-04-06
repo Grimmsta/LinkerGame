@@ -430,6 +430,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HighlightSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 491553216084976588, guid: f79842fc765c7944ba221c719f396cd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8119367217253891541, guid: f79842fc765c7944ba221c719f396cd3,
         type: 3}
       propertyPath: m_RootOrder
@@ -519,7 +524,7 @@ PrefabInstance:
     - target: {fileID: 7921980075923310712, guid: 6077ee1aa57350743bf6b84597f17b9f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.095
       objectReference: {fileID: 0}
     - target: {fileID: 7921980075923310712, guid: 6077ee1aa57350743bf6b84597f17b9f,
         type: 3}

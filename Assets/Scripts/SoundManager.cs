@@ -2,11 +2,9 @@
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] 
-    private AudioClip m_SelectSound;
+    [SerializeField] private AudioClip m_SelectSound;
     
-    [SerializeField] 
-    private AudioClip m_TilePopSound;
+    [SerializeField] private AudioClip m_TilePopSound;
     
     private AudioSource m_AudioSource;
 
